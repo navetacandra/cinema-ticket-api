@@ -1,9 +1,9 @@
 ## TODO
 
 - utils
-  - mysql
-  - jwt
-  - token
+  - mysql [✅] [Last update: 3 Nov 2023]
+  - jwt [✅] [Last update: 3 Nov 2023]
+  - token [✅] [Last update: 3 Nov 2023]
 - models
   - users
   - user_token
@@ -18,195 +18,110 @@
 - controllers
   - login
     ```js
-    {
-      username: string,
-      password: string
-    }
+    { username: string, password: string }
     ```
   - register
     ```js
-    {
-      name: string,
-      username: string,
-      password: string
-    }
+    { name: string, username: string, password: string }
     ```
   - add_movie
     ```js
-    {
-      name: string,
-      genre: string,
-      poster_url: string,
-      synopsis: string,
-      rating: number
-    }
+    { name: string, genre: string, poster_url: string, synopsis: string, rating: number }
     ```
   - update_movie
     ```js
-    {
-      id: number,
-      name: string,
-      genre: string,
-      poster_url: string,
-      synopsis: string,
-      rating: number
-    }
+    { id: number, name: string, genre: string, poster_url: string, synopsis: string, rating: number }
     ```
   - delete_movie
     ```js
-    {
-      id: number;
-    }
+    { id: number }
     ```
   - get_all_movie
   - find_movie
     ```js
-    {
-      name: string,
-    }
+    { name: string }
     ```
   - add_cinemas
     ```js
-    {
-      name: string,
-      address: string
-    }
+    { name: string, address: string }
     ```
   - update_cinemas
     ```js
-    {
-      id: number,
-      name: string,
-      address: string
-    }
+    { id: number, name: string, address: string }
     ```
   - delete_cinemas
     ```js
-    {
-      id: number;
-    }
+    { id: number }
     ```
   - get_all_cinemas
   - find_cinemas
     ```js
-    {
-      query: string;
-    }
+    { query: string }
     ```
   - add_studios
     ```js
-    {
-      cinema_id: number,
-      name: string
-    }
+    { cinema_id: number, name: string }
     ```
   - update_studios
     ```js
-    {
-      id: number,
-      cinema_id: number,
-      name: string
-    }
+    { id: number, cinema_id: number, name: string }
     ```
   - delete_studios
     ```js
-    {
-      id: number;
-    }
+    { id: number }
     ```
   - get_all_studios
   - find_studios
     ```js
-    {
-      query: string;
-    }
+    { query: string }
     ```
   - add_seats
     ```js
-    {
-      studio_id: number,
-      name: string
-    }
+    { studio_id: number, name: string }
     ```
   - update_seats
     ```js
-    {
-      id: number,
-      studio_id: number,
-      name: string
-    }
+    { id: number, studio_id: number, name: string }
     ```
   - delete_seats
     ```js
-    {
-      id: number;
-    }
+    { id: number }
     ```
   - get_all_seats
   - find_seats
     ```js
-    {
-      query: string;
-    }
+    { query: string }
     ```
   - add_shows
     ```js
-    {
-      studio_id: number,
-      movie_id: number,
-      schedule_id: number,
-      price: number,
-      date: string
-    }
+    { studio_id: number, movie_id: number, schedule_id: number, price: number, date: string }
     ```
   - update_shows
     ```js
-    {
-      id: number,
-      studio_id: number,
-      movie_id: number,
-      schedule_id: number,
-      price: number,
-      date: string
-    }
+    { id: number, studio_id: number, movie_id: number, schedule_id: number, price: number, date: string }
     ```
   - delete_shows
     ```js
-    {
-      id: number;
-    }
+    { id: number }
     ```
   - get_all_shows
   - find_shows
     ```js
-    {
-      id: number;
-    }
+    { id: number }
     ```
   - add_books
     ```js
-    {
-      user_id: number,
-      show_id: number,
-      seat_id: number,
-      count: number
-    }
+    { user_id: number, show_id: number, seat_id: number, count: number }
     ```
   - delete_books
     ```js
-    {
-      id: number;
-    }
+    { id: number }
     ```
   - get_books_history
     ```js
-    {
-      user_id: number;
-    }
+    { user_id: number }
     ```
   - checkout
     ```js
-    {
-      book_id: number;
-    }
+    { book_id: number }
     ```
