@@ -1,9 +1,9 @@
 ## TODO
 
 - utils
-  - mysql [✅] [Last update: 3 Nov 2023]
-  - jwt [✅] [Last update: 3 Nov 2023]
-  - token [✅] [Last update: 3 Nov 2023]
+  - [mysql](./utils/mysql.js) [✅] [Last update: 3 Nov 2023]
+  - [jwt](./utils/jwt.js) [✅] [Last update: 3 Nov 2023]
+  - [token](./utils/token.js) [✅] [Last update: 3 Nov 2023]
 - models
   - users
   - user_token
@@ -15,6 +15,10 @@
   - shows
   - books
   - checkouts
+- middleware
+  - authenticatedOnly
+  - unauthenticatedOnly
+  - adminOnly
 - controllers
   - login
     ```js
@@ -24,15 +28,15 @@
     ```js
     { name: string, username: string, password: string }
     ```
-  - add_movie
+  - add_movie [adminOnly]
     ```js
     { name: string, genre: string, poster_url: string, synopsis: string, rating: number }
     ```
-  - update_movie
+  - update_movie [adminOnly]
     ```js
     { id: number, name: string, genre: string, poster_url: string, synopsis: string, rating: number }
     ```
-  - delete_movie
+  - delete_movie [adminOnly]
     ```js
     { id: number }
     ```
@@ -41,15 +45,15 @@
     ```js
     { name: string }
     ```
-  - add_cinemas
+  - add_cinemas [adminOnly]
     ```js
     { name: string, address: string }
     ```
-  - update_cinemas
+  - update_cinemas [adminOnly]
     ```js
     { id: number, name: string, address: string }
     ```
-  - delete_cinemas
+  - delete_cinemas [adminOnly]
     ```js
     { id: number }
     ```
@@ -58,15 +62,15 @@
     ```js
     { query: string }
     ```
-  - add_studios
+  - add_studios [adminOnly]
     ```js
     { cinema_id: number, name: string }
     ```
-  - update_studios
+  - update_studios [adminOnly]
     ```js
     { id: number, cinema_id: number, name: string }
     ```
-  - delete_studios
+  - delete_studios [adminOnly]
     ```js
     { id: number }
     ```
@@ -75,15 +79,15 @@
     ```js
     { query: string }
     ```
-  - add_seats
+  - add_seats [adminOnly]
     ```js
     { studio_id: number, name: string }
     ```
-  - update_seats
+  - update_seats [adminOnly]
     ```js
     { id: number, studio_id: number, name: string }
     ```
-  - delete_seats
+  - delete_seats [adminOnly]
     ```js
     { id: number }
     ```
@@ -92,15 +96,15 @@
     ```js
     { query: string }
     ```
-  - add_shows
+  - add_shows [adminOnly]
     ```js
     { studio_id: number, movie_id: number, schedule_id: number, price: number, date: string }
     ```
-  - update_shows
+  - update_shows [adminOnly]
     ```js
     { id: number, studio_id: number, movie_id: number, schedule_id: number, price: number, date: string }
     ```
-  - delete_shows
+  - delete_shows [adminOnly]
     ```js
     { id: number }
     ```
