@@ -39,7 +39,7 @@ module.exports = {
     }
 
     const findToken = await sqlQuery(
-      `SELECT * FROM user_token WHERE user_id = '${data.user_id}'`
+      `SELECT * FROM user_token WHERE user_id = '${data.user_id}'`,
     );
 
     if (findToken.length < 1) return false;
@@ -47,7 +47,7 @@ module.exports = {
     if (findToken[0].ip !== ip) return false;
 
     const findUser = await sqlQuery(
-      `SELECT * FROM users WHERE id = '${data.user_id}'`
+      `SELECT * FROM users WHERE id = '${data.user_id}'`,
     );
     if (findUser.length < 1) return false;
 

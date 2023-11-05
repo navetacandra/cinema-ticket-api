@@ -6,6 +6,8 @@
   "scripts": {
     "start": "node .",
     "dev": "nodemon .",
+    "migrate-database": "node ./database/migrate.js",
+    "seed-database": "node ./database/seed.js",
     "prepare": "husky install"
   },
   "keywords": [],
