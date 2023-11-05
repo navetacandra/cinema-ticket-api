@@ -6,7 +6,7 @@ async function addMovie(
   poster_url = "",
   synopsis = "",
   rating = 0.0,
-  duration = 0
+  duration = 0,
 ) {
   const input = { name, genre, poster_url, synopsis, rating, duration };
   try {
@@ -37,7 +37,7 @@ async function addMovie(
     }
 
     const insertMovie = await sqlQuery(
-      `INSERT INTO movies (name, genre, poster_url, synopsis, rating, duration) VALUES ('${name}', '${genre}', '${poster_url}', '${synopsis}', ${rating}, ${duration})`
+      `INSERT INTO movies (name, genre, poster_url, synopsis, rating, duration) VALUES ('${name}', '${genre}', '${poster_url}', '${synopsis}', ${rating}, ${duration})`,
     );
     if (insertMovie.affectedRows < 1) {
       error["message"] = "Failed to add movie";
@@ -80,7 +80,7 @@ async function removeMovie(id = 0) {
     }
 
     const deleteMovie = await sqlQuery(
-      `DELETE FROM movies WHERE movie_id = ${id}`
+      `DELETE FROM movies WHERE movie_id = ${id}`,
     );
     if (deleteMovie.affectedRows < 1) {
       error["message"] = "Failed to delete movie";
@@ -124,7 +124,7 @@ async function getMovieById(id = 0) {
     }
 
     const findMovie = await sqlQuery(
-      `SELECT * FROM movies WHERE movie_id = ${id}`
+      `SELECT * FROM movies WHERE movie_id = ${id}`,
     );
     if (findMovie.length < 1) {
       error["message"] = "Movie not found";
@@ -200,7 +200,7 @@ async function findMovies(query = "") {
     }
 
     const movies = await sqlQuery(
-      `SELECT movie_id, name, genre, synopsis, rating, duration, CONCAT(name, ',', genre, ',', synopsis) AS data_query FROM movies WHERE data_query LIKE '%${query}%'`
+      `SELECT movie_id, name, genre, synopsis, rating, duration, CONCAT(name, ',', genre, ',', synopsis) AS data_query FROM movies WHERE data_query LIKE '%${query}%'`,
     );
     if (movies.length < 1) {
       error["message"] = "Movie not found";
@@ -235,7 +235,7 @@ async function updateMovie(
   poster_url = "",
   synopsis = "",
   rating = 0.0,
-  duration = 0
+  duration = 0,
 ) {
   const input = { id, name, genre, poster_url, synopsis, rating, duration };
   try {
@@ -277,7 +277,7 @@ async function updateMovie(
     }
 
     const update = await sqlQuery(
-      `UPDATE movies SET name = '${name}', genre = '${genre}', poster_url = '${poster_url}', synopsis = '${synopsis}', rating = ${rating}, duration = ${duration} WHERE movie_id = ${id}`
+      `UPDATE movies SET name = '${name}', genre = '${genre}', poster_url = '${poster_url}', synopsis = '${synopsis}', rating = ${rating}, duration = ${duration} WHERE movie_id = ${id}`,
     );
     if (update.affectedRows < 1) {
       error["message"] = "Failed to update movie";
@@ -311,4 +311,4 @@ module.exports = {
   addMovie,
   removeMovie,
   updateMovie,
-}
+};

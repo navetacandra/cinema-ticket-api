@@ -21,7 +21,7 @@ async function addCinema(name = "", address = "") {
     }
 
     const insertCinema = await sqlQuery(
-      `INSERT INTO cinemas (name, address) VALUES ('${name}', '${address}')`
+      `INSERT INTO cinemas (name, address) VALUES ('${name}', '${address}')`,
     );
 
     if (insertCinema.affectedRows < 1) {
@@ -141,7 +141,7 @@ async function updateCinema(id = 0, name = "", address = "") {
     }
 
     const update = await sqlQuery(
-      `UPDATE cinemas SET name = '${name}', address = '${address}' WHERE id = ${id}`
+      `UPDATE cinemas SET name = '${name}', address = '${address}' WHERE id = ${id}`,
     );
     if (update.affectedRows < 1) {
       error["message"] = "Failed to update cinema";

@@ -5,7 +5,7 @@ async function createUser(
   name = "",
   username = "",
   password = "",
-  phone_number = ""
+  phone_number = "",
 ) {
   const input = { name, username, password, phone_number };
   try {
@@ -67,7 +67,7 @@ async function createUser(
 
     const hashPassword = bcrypt.hashSync(password, 15);
     const insertUser = await sqlQuery(
-      `INSERT INTO users (name, username, password, phone_number) VALUES ('${name}', '${username}', '${hashPassword}', '${phone_number}')`
+      `INSERT INTO users (name, username, password, phone_number) VALUES ('${name}', '${username}', '${hashPassword}', '${phone_number}')`,
     );
     if (insertUser.affectedRows < 1) {
       error["message"] = "Failed to create user";
@@ -193,7 +193,7 @@ async function getUserByUsername(username = "") {
     }
 
     const findUser = await sqlQuery(
-      `SELECT * FROM users WHERE username = '${username}'`
+      `SELECT * FROM users WHERE username = '${username}'`,
     );
     if (findUser.length < 1) {
       error["username"] = "User not found";

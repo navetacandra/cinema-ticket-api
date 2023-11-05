@@ -32,7 +32,7 @@ async function addCheckout(uid = 0, book_id = 0) {
     }
 
     const res = await sqlQuery(
-      `INSERT INTO checkouts (uid, book_id, paid, status) VALUES (${uid}, ${book_id}, true, 'paid')`
+      `INSERT INTO checkouts (uid, book_id, paid, status) VALUES (${uid}, ${book_id}, true, 'paid')`,
     );
 
     if (res.affectedRows < 1) {
@@ -115,7 +115,7 @@ async function getCheckouts(uid = 0) {
     }
 
     const res = await sqlQuery(
-      `SELECT * FROM checkouts INNER JOIN books ON checkouts.book_id = books.book_id INNER JOIN users ON books.user_id = users.uid WHERE books.user_id = ${uid}`
+      `SELECT * FROM checkouts INNER JOIN books ON checkouts.book_id = books.book_id INNER JOIN users ON books.user_id = users.uid WHERE books.user_id = ${uid}`,
     );
     if (res.length < 1) {
       error["message"] = "Checkout not found";

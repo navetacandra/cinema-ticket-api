@@ -5,7 +5,7 @@ async function addShow(
   movie_id = 0,
   schedule = "",
   price = 0,
-  date = ""
+  date = "",
 ) {
   const input = { studio_id, movie_id, schedule, price, date };
   try {
@@ -69,7 +69,7 @@ async function addShow(
     }
 
     const insertShow = await sqlQuery(
-      `INSERT INTO seats (studio_id, movie_id, schedule, price, date) VALUES (${studio_id}, ${movie_id}, '${schedule}', ${price}, '${date}')`
+      `INSERT INTO seats (studio_id, movie_id, schedule, price, date) VALUES (${studio_id}, ${movie_id}, '${schedule}', ${price}, '${date}')`,
     );
 
     if (insertShow.affectedRows < 1) {
@@ -128,7 +128,7 @@ async function removeShow(id = 0) {
     }
 
     const deleteShow = await sqlQuery(
-      `DELETE FROM shows WHERE show_id = ${id}`
+      `DELETE FROM shows WHERE show_id = ${id}`,
     );
     if (deleteShow.affectedRows < 1) {
       error["message"] = "Failed to delete show";
@@ -161,7 +161,7 @@ async function updateShow(
   movie_id = 0,
   schedule = "",
   price = 0,
-  date = ""
+  date = "",
 ) {
   const input = { studio_id, movie_id, schedule, price, date };
   try {
@@ -236,7 +236,7 @@ async function updateShow(
     }
 
     const update = await sqlQuery(
-      `UPDATE shows SET studio_id = ${studio_id}, movie_id = ${movie_id}, schedule = '${schedule}', price = ${price}, date = '${date}' WHERE show_id = ${id}`
+      `UPDATE shows SET studio_id = ${studio_id}, movie_id = ${movie_id}, schedule = '${schedule}', price = ${price}, date = '${date}' WHERE show_id = ${id}`,
     );
     if (update.affectedRows < 1) {
       error["message"] = "Failed to update show";
@@ -308,7 +308,7 @@ async function getShowById(id = 0) {
     }
 
     const findShow = await sqlQuery(
-      `SELECT * FROM shows WHERE show_id = ${id}`
+      `SELECT * FROM shows WHERE show_id = ${id}`,
     );
     if (findShow.length < 1) {
       error["message"] = "Show not found";
@@ -354,7 +354,7 @@ async function getShowByMovieId(id = 0) {
     }
 
     const findShow = await sqlQuery(
-      `SELECT * FROM shows WHERE movie_id = ${id}`
+      `SELECT * FROM shows WHERE movie_id = ${id}`,
     );
     if (findShow.length < 1) {
       error["message"] = "Show not found";
@@ -400,7 +400,7 @@ async function getShowByStudioId(id = 0) {
     }
 
     const findShow = await sqlQuery(
-      `SELECT * FROM shows WHERE studio_id = ${id}`
+      `SELECT * FROM shows WHERE studio_id = ${id}`,
     );
     if (findShow.length < 1) {
       error["message"] = "Show not found";

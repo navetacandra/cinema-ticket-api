@@ -32,7 +32,7 @@ async function addUserToken(user_id = 0, user_agent = "", ip = "") {
 
     const token = await tokenize(user_id, user_agent, ip);
     const insertToken = await sqlQuery(
-      `INSERT INTO user_tokens (user_id, user_agent, ip, token) VALUES ('${user_id}', '${user_agent}', '${ip}', '${token}')`
+      `INSERT INTO user_tokens (user_id, user_agent, ip, token) VALUES ('${user_id}', '${user_agent}', '${ip}', '${token}')`,
     );
     if (insertToken.affectedRows < 1) {
       return {
@@ -107,7 +107,7 @@ async function removeUserToken(token = "") {
     }
 
     const removeToken = await sqlQuery(
-      `DELETE FROM user_tokens WHERE token = '${token}'`
+      `DELETE FROM user_tokens WHERE token = '${token}'`,
     );
     if (removeToken.affectedRows < 1) {
       return {
@@ -146,7 +146,7 @@ async function getUserByUserToken(token = "") {
     }
 
     const user = await sqlQuery(
-      `SELECT * FROM user_tokens WHERE token = '${token}' INNER JOIN users ON user_tokens.user_id = users.uid`
+      `SELECT * FROM user_tokens WHERE token = '${token}' INNER JOIN users ON user_tokens.user_id = users.uid`,
     );
     if (user.length < 1) {
       return {

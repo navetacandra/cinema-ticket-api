@@ -41,7 +41,7 @@ async function addBook(user_id = 0, show_id = 0, seat_id = 0, count = 0) {
     }
 
     const insertBook = await sqlQuery(
-      `INSERT INTO books (user_id, show_id, seat_id, count) VALUES (${user_id}, ${show_id}, ${seat_id}, ${count})`
+      `INSERT INTO books (user_id, show_id, seat_id, count) VALUES (${user_id}, ${show_id}, ${seat_id}, ${count})`,
     );
     if (insertBook.affectedRows < 1) {
       return {

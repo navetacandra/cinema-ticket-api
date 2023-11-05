@@ -23,7 +23,7 @@ async function addStudio(cinema_id = 0, name = "") {
     }
 
     const insertStudio = await sqlQuery(
-      `INSERT INTO studios (cinema_id, name) VALUES (${cinema_id}, '${name}')`
+      `INSERT INTO studios (cinema_id, name) VALUES (${cinema_id}, '${name}')`,
     );
 
     if (insertStudio.affectedRows < 1) {
@@ -82,7 +82,7 @@ async function removeStudio(id = 0) {
     }
 
     const deleteStudio = await sqlQuery(
-      `DELETE FROM studios WHERE studio_id = ${id}`
+      `DELETE FROM studios WHERE studio_id = ${id}`,
     );
     if (deleteStudio.affectedRows < 1) {
       error["message"] = "Failed to delete studio";
@@ -147,7 +147,7 @@ async function updateStudio(id = 0, cinema_id = 0, name = "") {
     }
 
     const update = await sqlQuery(
-      `UPDATE studios SET cinema_id = '${cinema_id}', name = '${name}' WHERE studio_id = ${id}`
+      `UPDATE studios SET cinema_id = '${cinema_id}', name = '${name}' WHERE studio_id = ${id}`,
     );
     if (update.affectedRows < 1) {
       error["message"] = "Failed to update studio";
@@ -219,7 +219,7 @@ async function getStudioById(id = 0) {
     }
 
     const findStudio = await sqlQuery(
-      `SELECT * FROM studios WHERE studio_id = ${id}`
+      `SELECT * FROM studios WHERE studio_id = ${id}`,
     );
     if (findStudio.length < 1) {
       error["message"] = "Studio not found";

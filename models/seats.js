@@ -23,7 +23,7 @@ async function addSeat(studio_id = 0, name = "") {
     }
 
     const insertSeat = await sqlQuery(
-      `INSERT INTO seats (studio_id, name) VALUES (${studio_id}, '${name}')`
+      `INSERT INTO seats (studio_id, name) VALUES (${studio_id}, '${name}')`,
     );
 
     if (insertSeat.affectedRows < 1) {
@@ -82,7 +82,7 @@ async function removeSeat(id = 0) {
     }
 
     const deleteSeat = await sqlQuery(
-      `DELETE FROM seats WHERE seat_id = ${id}`
+      `DELETE FROM seats WHERE seat_id = ${id}`,
     );
     if (deleteSeat.affectedRows < 1) {
       error["message"] = "Failed to delete seat";
@@ -147,7 +147,7 @@ async function updateSeat(id = 0, studio_id = 0, name = "") {
     }
 
     const update = await sqlQuery(
-      `UPDATE seats SET studio_id = '${studio_id}', name = '${name}' WHERE seat_id = ${id}`
+      `UPDATE seats SET studio_id = '${studio_id}', name = '${name}' WHERE seat_id = ${id}`,
     );
     if (update.affectedRows < 1) {
       error["message"] = "Failed to update seat";
@@ -219,7 +219,7 @@ async function getSeatById(id = 0) {
     }
 
     const findSeat = await sqlQuery(
-      `SELECT * FROM seats WHERE seat_id = ${id}`
+      `SELECT * FROM seats WHERE seat_id = ${id}`,
     );
     if (findSeat.length < 1) {
       error["message"] = "Seat not found";
